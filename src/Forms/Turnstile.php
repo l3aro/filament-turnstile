@@ -1,6 +1,6 @@
 <?php
 
-namespace l3aro\FilamentTurnstile\Forms\Components;
+namespace l3aro\FilamentTurnstile\Forms;
 
 use Closure;
 use Filament\Forms\Components\Field;
