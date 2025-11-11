@@ -1,27 +1,27 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile\Rules;
+namespace l3aro\FilamentTurnstile\Rules;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Closure;
-use l3aro\CloudflareTurnstile\Facades\CloudflareTurnstileFacade;
+use l3aro\FilamentTurnstile\Facades\FilamentTurnstileFacade;
 
 class TurnstileRule implements ValidationRule
 {
     public function validate(string $attribute, mixed $value, Closure $fail): void
     {
-        $response = CloudflareTurnstileFacade::verify($value);
+        $response = FilamentTurnstileFacade::verify($value);
 
         if ($response->success) {
             return;
         }
 
         if (empty($response->errorCodes)) {
-            $fail('cloudflare-turnstile::errors.unexpected')->translate();
+            $fail('filament-turnstile::errors.unexpected')->translate();
         }
 
         foreach ($response->errorCodes as $errorCode) {
-            $fail('cloudflare-turnstile::errors.' . $errorCode)->translate();
+            $fail('filament-turnstile::errors.' . $errorCode)->translate();
         }
     }
 }

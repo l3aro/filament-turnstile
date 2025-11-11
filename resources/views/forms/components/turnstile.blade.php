@@ -11,7 +11,7 @@
         x-init="
             (() => {
                 let options = {
-                    sitekey: '{{ config('cloudflare-turnstile.key') }}',
+                    sitekey: '{{ config('filament-turnstile.key') }}',
                     theme: '{{ $getTheme() }}',
                     size: '{{ $getSize() }}',
                     language: '{{ $getLanguage() }}',

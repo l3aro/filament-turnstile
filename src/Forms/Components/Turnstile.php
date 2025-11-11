@@ -1,19 +1,19 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile\Forms\Components;
+namespace l3aro\FilamentTurnstile\Forms\Components;
 
 use Closure;
 use Filament\Forms\Components\Field;
 use Filament\Support\Concerns\HasAlignment;
 use Filament\Support\Enums\Alignment;
 use Filament\Support\Enums\ArgumentValue;
-use l3aro\CloudflareTurnstile\Rules\TurnstileRule;
+use l3aro\FilamentTurnstile\Rules\TurnstileRule;
 
 class Turnstile extends Field
 {
     use HasAlignment;
 
-    protected string $view = 'cloudflare-turnstile::components.turnstile';
+    protected string $view = 'filament-turnstile::components.turnstile';
 
     protected string $viewIdentifier = 'turnstile';
 

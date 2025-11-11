@@ -1,10 +1,10 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile;
+namespace l3aro\FilamentTurnstile;
 
 use Illuminate\Contracts\Support\Arrayable;
 
-class CloudflareTurnstileResponse implements Arrayable
+class FilamentTurnstileResponse implements Arrayable
 {
     public function __construct(
         public bool $success,

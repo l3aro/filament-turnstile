@@ -1,13 +1,13 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile\Testing;
+namespace l3aro\FilamentTurnstile\Testing;
 
 use Livewire\Features\SupportTesting\Testable;
 
 /**
  * @mixin Testable
  */
-class TestsCloudflareTurnstile
+class TestsFilamentTurnstile
 {
     //
 }

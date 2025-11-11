@@ -1,9 +1,9 @@
 # Filament Turnstile is an essential plugin designed to seamlessly integrate Cloudflareyour Filament application.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/l3aro/cloudflare-turnstile.svg?style=flat-square)](https://packagist.org/packages/l3aro/cloudflare-turnstile)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/l3aro/cloudflare-turnstile/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/l3aro/cloudflare-turnstile/actions?query=workflow%3Arun-tests+branch%3Amain)
-[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/l3aro/cloudflare-turnstile/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/l3aro/cloudflare-turnstile/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
-[![Total Downloads](https://img.shields.io/packagist/dt/l3aro/cloudflare-turnstile.svg?style=flat-square)](https://packagist.org/packages/l3aro/cloudflare-turnstile)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/l3aro/filament-turnstile.svg?style=flat-square)](https://packagist.org/packages/l3aro/filament-turnstile)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/l3aro/filament-turnstile/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/l3aro/filament-turnstile/actions?query=workflow%3Arun-tests+branch%3Amain)
+[![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/l3aro/filament-turnstile/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/l3aro/filament-turnstile/actions?query=workflow%3A"Fix+PHP+code+styling"+branch%3Amain)
+[![Total Downloads](https://img.shields.io/packagist/dt/l3aro/filament-turnstile.svg?style=flat-square)](https://packagist.org/packages/l3aro/filament-turnstile)
 
 
 
@@ -14,19 +14,19 @@ This is where your description should go. Limit it to a paragraph or two. Consid
 You can install the package via composer:
 
 ```bash
-composer require l3aro/cloudflare-turnstile
+composer require l3aro/filament-turnstile
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="cloudflare-turnstile-config"
+php artisan vendor:publish --tag="filament-turnstile-config"
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="cloudflare-turnstile-views"
+php artisan vendor:publish --tag="filament-turnstile-views"
 ```
 
 This is the contents of the published config file:
@@ -41,8 +41,8 @@ return [
 ## Usage
 
 ```php
-$cloudflareTurnstile = new l3aro\CloudflareTurnstile();
-echo $cloudflareTurnstile->echoPhrase('Hello, l3aro!');
+$FilamentTurnstile = new l3aro\FilamentTurnstile();
+echo $FilamentTurnstile->echoPhrase('Hello, l3aro!');
 ```
 
 ## Testing

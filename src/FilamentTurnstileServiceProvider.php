@@ -1,18 +1,18 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile;
+namespace l3aro\FilamentTurnstile;
 
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use l3aro\CloudflareTurnstile\Testing\TestsCloudflareTurnstile;
+use l3aro\FilamentTurnstile\Testing\TestsFilamentTurnstile;
 
-class CloudflareTurnstileServiceProvider extends PackageServiceProvider
+class FilamentTurnstileServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'cloudflare-turnstile';
+    public static string $name = 'filament-turnstile';
 
-    public static string $viewNamespace = 'cloudflare-turnstile';
+    public static string $viewNamespace = 'filament-turnstile';
 
     public function configurePackage(Package $package): void
     {
@@ -25,7 +25,7 @@ class CloudflareTurnstileServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->askToStarRepoOnGitHub('l3aro/cloudflare-turnstile');
+                    ->askToStarRepoOnGitHub('l3aro/filament-turnstile');
             });
 
         $configFileName = $package->shortName();
@@ -48,6 +48,6 @@ class CloudflareTurnstileServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
         // Testing
-        Testable::mixin(new TestsCloudflareTurnstile());
+        Testable::mixin(new TestsFilamentTurnstile());
     }
 }

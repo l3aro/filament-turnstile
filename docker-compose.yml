@@ -1,7 +1,7 @@
 services:
   app:
     image: ghcr.io/l3aro/docker-laravel-base:cli
-    container_name: cloudflare-turnstile
+    container_name: filament-turnstile
     volumes:
       - ./:/var/www/html
     working_dir: /var/www/html

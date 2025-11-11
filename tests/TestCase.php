@@ -1,6 +1,6 @@
 <?php
 
-namespace l3aro\CloudflareTurnstile\Tests;
+namespace l3aro\FilamentTurnstile\Tests;
 
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
@@ -15,7 +15,7 @@ use Filament\Widgets\WidgetsServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
-use l3aro\CloudflareTurnstile\CloudflareTurnstileServiceProvider;
+use l3aro\FilamentTurnstile\FilamentTurnstileServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -34,14 +34,14 @@ class TestCase extends Orchestra
             SupportServiceProvider::class,
             TablesServiceProvider::class,
             WidgetsServiceProvider::class,
-            CloudflareTurnstileServiceProvider::class,
+            FilamentTurnstileServiceProvider::class,
         ];
     }
 
     public function getEnvironmentSetUp($app)
     {
         /*
-        $migration = include __DIR__.'/../database/migrations/create_cloudflare-turnstile_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_filament-turnstile_table.php.stub';
         $migration->up();
         */
     }

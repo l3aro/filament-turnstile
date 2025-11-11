@@ -1,15 +1,17 @@
 {
-    "name": "l3aro/cloudflare-turnstile",
-    "description": "Filament Turnstile is an essential plugin designed to seamlessly integrate Cloudflareyour Filament application.",
+    "name": "l3aro/filament-turnstile",
+    "description": "Filament Turnstile is an essential plugin designed to seamlessly integrate Cloudflare Turnstile into your Filament application.",
     "keywords": [
         "l3aro",
         "laravel",
-        "cloudflare-turnstile"
+        "filament",
+        "cloudflare-turnstile",
+        "filament-turnstile"
     ],
-    "homepage": "https://github.com/l3aro/cloudflare-turnstile",
+    "homepage": "https://github.com/l3aro/filament-turnstile",
     "support": {
-        "issues": "https://github.com/l3aro/cloudflare-turnstile/issues",
-        "source": "https://github.com/l3aro/cloudflare-turnstile"
+        "issues": "https://github.com/l3aro/filament-turnstile/issues",
+        "source": "https://github.com/l3aro/filament-turnstile"
     },
     "license": "MIT",
     "authors": [
@@ -39,12 +41,12 @@
     },
     "autoload": {
         "psr-4": {
-            "l3aro\\CloudflareTurnstile\\": "src/"
+            "l3aro\\FilamentTurnstile\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "l3aro\\CloudflareTurnstile\\Tests\\": "tests/"
+            "l3aro\\FilamentTurnstile\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -63,10 +65,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "l3aro\\CloudflareTurnstile\\CloudflareTurnstileServiceProvider"
+                "l3aro\\FilamentTurnstile\\FilamentTurnstileServiceProvider"
             ],
             "aliases": {
-                "CloudflareTurnstile": "l3aro\\CloudflareTurnstile\\Facades\\CloudflareTurnstile"
+                "FilamentTurnstile": "l3aro\\FilamentTurnstile\\Facades\\FilamentTurnstile"
             }
         }
     },

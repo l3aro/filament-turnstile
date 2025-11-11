@@ -1,5 +1,5 @@
 <?php
 
-use l3aro\CloudflareTurnstile\Tests\TestCase;
+use l3aro\FilamentTurnstile\Tests\TestCase;
 
 uses(TestCase::class)->in(__DIR__);
