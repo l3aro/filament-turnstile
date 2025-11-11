@@ -34,6 +34,7 @@ class Turnstile extends Field
 
         $this
             ->required()
+            ->hiddenLabel()
             ->rule(new TurnstileRule())
             ->dehydrated(false);
     }

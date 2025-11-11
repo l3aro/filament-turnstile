@@ -10,6 +10,8 @@
         }"
         x-init="
             (() => {
+                console.info('Filament Turnstile init');
+
                 let options = {
                     sitekey: '{{ config('filament-turnstile.key') }}',
                     theme: '{{ $getTheme() }}',
