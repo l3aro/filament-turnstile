@@ -59,7 +59,7 @@
         "
         @class([
             'flex',
-            $getAlignment(),
+            $getAlignmentClasses(),
         ])
     >
         <div x-ref="turnstile"></div>

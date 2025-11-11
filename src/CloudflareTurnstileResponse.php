@@ -11,9 +11,9 @@ class CloudflareTurnstileResponse implements Arrayable
         public ?array $errorCodes,
     ) {}
 
-    public static function make(bool $success, ?array $errorCodes): static
+    public static function make(bool $success, ?array $errorCodes): self
     {
-        return new static($success, $errorCodes);
+        return new self($success, $errorCodes);
     }
 
     public function toArray(): array
