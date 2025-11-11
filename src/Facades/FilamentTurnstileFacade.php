@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @method static FilamentTurnstileResponse verify(string $response)
+ * @method static string getResetEventName()
+ *
  * @see \l3aro\FilamentTurnstile\FilamentTurnstile
  */
 class FilamentTurnstileFacade extends Facade

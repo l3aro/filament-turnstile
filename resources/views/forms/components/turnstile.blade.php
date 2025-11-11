@@ -42,7 +42,7 @@
                     renderWidget()
                 }
 
-                $wire.on('reset-captcha', () => {
+                $wire.on('{{ $getResetEvent() }}', () => {
                     if (widgetId !== null && window.turnstile) {
                         turnstile.reset(widgetId)
                     }

@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Http;
 
 class FilamentTurnstile
 {
-    protected static ?string $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'; //
+    protected static ?string $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
-    public static function verify(string $responseCode): FilamentTurnstileResponse
+    public function verify(string $responseCode): FilamentTurnstileResponse
     {
         $response = Http::retry(3, 10)
             ->asJson()
@@ -22,5 +22,10 @@ class FilamentTurnstile
             $response->ok() && $response->json('success'),
             $response->json('error-codes'),
         );
+    }
+
+    public function getResetEventName(): string
+    {
+        return config('filament-turnstile.reset_event');
     }
 }

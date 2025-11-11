@@ -33,8 +33,19 @@ The published configuration file contains:
 return [
     'key' => env('TURNSTILE_SITE_KEY'),
     'secret' => env('TURNSTILE_SECRET_KEY'),
+    'reset_event' => env('TURNSTILE_RESET_EVENT', 'reset-captcha'),
 ];
 ```
+
+## Customizing the Reset Event
+
+You can customize the name of the reset event **globally** by modifying the `TURNSTILE_RESET_EVENT` in your `.env` file:
+
+```env
+TURNSTILE_RESET_EVENT=your-custom-event-name
+```
+
+Or by directly modifying the `reset_event` value in the configuration file. This allows you to use a custom event name that better fits your application's event naming convention or to avoid conflicts with other JavaScript events.
 
 ## Turnstile Keys
 To use **Cloudflare Turnstile**, obtain your `SiteKey` and `SecretKey` from the Cloudflare dashboard.
@@ -55,12 +66,16 @@ For testing, you may use the [dummy site and secret keys](https://developers.clo
 Using the plugin is straightforward. In your form, add the following component:
 
 ```php
+use l3aro\FilamentTurnstile\Enums\TurnstileSize;
+use l3aro\FilamentTurnstile\Enums\TurnstileTheme;
 use l3aro\FilamentTurnstile\Forms\Components\Turnstile;
 
+
 Turnstile::make('captcha')
-    ->theme('auto') // accepts light, dark, auto
-    ->language('en-US') // see below
-    ->size('normal'), // accepts normal, compact
+    ->theme(TurnstileTheme::Auto)
+    ->size(TurnstileSize::Normal)
+    ->language('en-US')
+    ->resetEvent('reset-captcha')
 ```
 
 See the [supported languages](https://developers.cloudflare.com/turnstile/reference/supported-languages/) list for available locale codes.
@@ -73,7 +88,7 @@ The package provides events you can use to control the captcha in different scen
 
 ### Reset event
 
-The `reset-captcha` event resets the captcha challenge. It is helpful when you need to:
+The reset event (default: `reset-captcha`) resets the captcha challenge. It is helpful when you need to:
 
 - **Clear the challenge after a successful submission** so the next visitor receives a fresh captcha.
 - **Reset the challenge after validation errors** to avoid reusing a solved captcha when the form fails.
@@ -85,9 +100,11 @@ There are two primary ways to dispatch `reset-captcha`:
 1. **Via `onValidationError`:** Filament automatically calls `onValidationError` when validation fails. Dispatch the event there to refresh the captcha.
 
     ```php
+    use l3aro\FilamentTurnstile\Facades\FilamentTurnstileFacade;
+
     protected function onValidationError(ValidationException $exception): void
     {
-        $this->dispatch('reset-captcha');
+        $this->dispatch(FilamentTurnstileFacade::getResetEventName());
 
         // Perform additional actions as needed (e.g., display error messages)
     }
@@ -96,7 +113,7 @@ There are two primary ways to dispatch `reset-captcha`:
 2. **Manually:** Dispatch the event whenever your logic requires a reset.
 
     ```php
-    $this->dispatch('reset-captcha');
+    $this->dispatch(FilamentTurnstileFacade::getResetEventName());
     ```
 
 ### Resetting the login captcha
@@ -152,9 +169,7 @@ class Login extends AuthLogin
                         $this->getEmailFormComponent(),
                         $this->getPasswordFormComponent(),
                         $this->getRememberFormComponent(),
-                        Turnstile::make('captcha')
-                            ->label('Captcha')
-                            ->theme('auto'),
+                        Turnstile::make('captcha'),
                     ])
                     ->statePath('data'),
             ),
@@ -164,7 +179,7 @@ class Login extends AuthLogin
     // if you want to reset the captcha in case of validation error
     protected function throwFailureValidationException(): never
     {
-        $this->dispatch('reset-captcha');
+        $this->dispatch(FilamentTurnstileFacade::getResetEventName());
 
         parent::throwFailureValidationException();
     }
