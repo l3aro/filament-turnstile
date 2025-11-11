@@ -1,0 +1,8 @@
+services:
+  app:
+    image: serversideup/php:8.4-cli
+    container_name: cloudflare-turnstile
+    volumes:
+      - ./:/var/www/html
+    working_dir: /var/www/html
+    command: tail -f /dev/null
