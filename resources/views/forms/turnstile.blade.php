@@ -9,9 +9,9 @@
             widgetId: null,
         }"
         x-init="
-            (() => {
-                console.info('Filament Turnstile init');
+            widgetId = null;
 
+            (() => {
                 let options = {
                     sitekey: '{{ config('filament-turnstile.key') }}',
                     theme: '{{ $getTheme() }}',
