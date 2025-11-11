@@ -1,6 +1,6 @@
 <?php
 
-// config for l3aro/CloudflareTurnstile
 return [
-
+    'key' => env('TURNSTILE_SITE_KEY'),
+    'secret' => env('TURNSTILE_SECRET_KEY'),
 ];

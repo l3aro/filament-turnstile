@@ -1,6 +1,6 @@
 services:
   app:
-    image: serversideup/php:8.4-cli
+    image: ghcr.io/l3aro/docker-laravel-base:cli
     container_name: cloudflare-turnstile
     volumes:
       - ./:/var/www/html

@@ -17,13 +17,6 @@ You can install the package via composer:
 composer require l3aro/cloudflare-turnstile
 ```
 
-You can publish and run the migrations with:
-
-```bash
-php artisan vendor:publish --tag="cloudflare-turnstile-migrations"
-php artisan migrate
-```
-
 You can publish the config file with:
 
 ```bash
@@ -40,6 +33,8 @@ This is the contents of the published config file:
 
 ```php
 return [
+    'key' => env('TURNSTILE_SITE_KEY'),
+    'secret' => env('TURNSTILE_SECRET_KEY'),
 ];
 ```
 
