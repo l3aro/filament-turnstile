@@ -16,7 +16,7 @@ class Turnstile extends Field
 {
     use HasAlignment;
 
-    protected string $view = 'filament-turnstile::components.turnstile';
+    protected string $view = 'filament-turnstile::forms.turnstile';
 
     protected string $viewIdentifier = 'turnstile';
 
