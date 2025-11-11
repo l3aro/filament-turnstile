@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace l3aro\CloudflareTurnstile;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -13,14 +13,14 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
+use l3aro\CloudflareTurnstile\Commands\CloudflareTurnstileCommand;
+use l3aro\CloudflareTurnstile\Testing\TestsCloudflareTurnstile;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class CloudflareTurnstileServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'cloudflare-turnstile';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'cloudflare-turnstile';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +36,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('l3aro/cloudflare-turnstile');
             });
 
         $configFileName = $package->shortName();
@@ -65,12 +65,12 @@ class SkeletonServiceProvider extends PackageServiceProvider
         // Asset Registration
         FilamentAsset::register(
             $this->getAssets(),
-            $this->getAssetPackageName()
+            $this->getAssetPackageName(),
         );
 
         FilamentAsset::registerScriptData(
             $this->getScriptData(),
-            $this->getAssetPackageName()
+            $this->getAssetPackageName(),
         );
 
         // Icon Registration
@@ -80,18 +80,18 @@ class SkeletonServiceProvider extends PackageServiceProvider
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
+                    $file->getRealPath() => base_path("stubs/cloudflare-turnstile/{$file->getFilename()}"),
+                ], 'cloudflare-turnstile-stubs');
             }
         }
 
         // Testing
-        Testable::mixin(new TestsSkeleton);
+        Testable::mixin(new TestsCloudflareTurnstile());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'l3aro/cloudflare-turnstile';
     }
 
     /**
@@ -100,9 +100,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('cloudflare-turnstile', __DIR__ . '/../resources/dist/components/cloudflare-turnstile.js'),
+            Css::make('cloudflare-turnstile-styles', __DIR__ . '/../resources/dist/cloudflare-turnstile.css'),
+            Js::make('cloudflare-turnstile-scripts', __DIR__ . '/../resources/dist/cloudflare-turnstile.js'),
         ];
     }
 
@@ -112,7 +112,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            CloudflareTurnstileCommand::class,
         ];
     }
 
@@ -146,7 +146,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            'create_cloudflare-turnstile_table',
         ];
     }
 }
