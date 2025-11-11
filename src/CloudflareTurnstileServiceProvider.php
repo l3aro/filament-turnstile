@@ -13,7 +13,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use l3aro\CloudflareTurnstile\Commands\CloudflareTurnstileCommand;
 use l3aro\CloudflareTurnstile\Testing\TestsCloudflareTurnstile;
 
 class CloudflareTurnstileServiceProvider extends PackageServiceProvider
@@ -30,12 +29,9 @@ class CloudflareTurnstileServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package->name(static::$name)
-            ->hasCommands($this->getCommands())
             ->hasInstallCommand(function (InstallCommand $command) {
                 $command
                     ->publishConfigFile()
-                    ->publishMigrations()
-                    ->askToRunMigrations()
                     ->askToStarRepoOnGitHub('l3aro/cloudflare-turnstile');
             });
 
@@ -43,10 +39,6 @@ class CloudflareTurnstileServiceProvider extends PackageServiceProvider
 
         if (file_exists($package->basePath("/../config/{$configFileName}.php"))) {
             $package->hasConfigFile();
-        }
-
-        if (file_exists($package->basePath('/../database/migrations'))) {
-            $package->hasMigrations($this->getMigrations());
         }
 
         if (file_exists($package->basePath('/../resources/lang'))) {
@@ -62,91 +54,7 @@ class CloudflareTurnstileServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        // Asset Registration
-        FilamentAsset::register(
-            $this->getAssets(),
-            $this->getAssetPackageName(),
-        );
-
-        FilamentAsset::registerScriptData(
-            $this->getScriptData(),
-            $this->getAssetPackageName(),
-        );
-
-        // Icon Registration
-        FilamentIcon::register($this->getIcons());
-
-        // Handle Stubs
-        if (app()->runningInConsole()) {
-            foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
-                $this->publishes([
-                    $file->getRealPath() => base_path("stubs/cloudflare-turnstile/{$file->getFilename()}"),
-                ], 'cloudflare-turnstile-stubs');
-            }
-        }
-
         // Testing
         Testable::mixin(new TestsCloudflareTurnstile());
-    }
-
-    protected function getAssetPackageName(): ?string
-    {
-        return 'l3aro/cloudflare-turnstile';
-    }
-
-    /**
-     * @return array<Asset>
-     */
-    protected function getAssets(): array
-    {
-        return [
-            // AlpineComponent::make('cloudflare-turnstile', __DIR__ . '/../resources/dist/components/cloudflare-turnstile.js'),
-            Css::make('cloudflare-turnstile-styles', __DIR__ . '/../resources/dist/cloudflare-turnstile.css'),
-            Js::make('cloudflare-turnstile-scripts', __DIR__ . '/../resources/dist/cloudflare-turnstile.js'),
-        ];
-    }
-
-    /**
-     * @return array<class-string>
-     */
-    protected function getCommands(): array
-    {
-        return [
-            CloudflareTurnstileCommand::class,
-        ];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getIcons(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getRoutes(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string, mixed>
-     */
-    protected function getScriptData(): array
-    {
-        return [];
-    }
-
-    /**
-     * @return array<string>
-     */
-    protected function getMigrations(): array
-    {
-        return [
-            'create_cloudflare-turnstile_table',
-        ];
     }
 }

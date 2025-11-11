@@ -38,8 +38,7 @@
     },
     "autoload": {
         "psr-4": {
-            "l3aro\\CloudflareTurnstile\\": "src/",
-            "l3aro\\CloudflareTurnstile\\Database\\Factories\\": "database/factories/"
+            "l3aro\\CloudflareTurnstile\\": "src/"
         }
     },
     "autoload-dev": {
