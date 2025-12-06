@@ -68,7 +68,7 @@ Using the plugin is straightforward. In your form, add the following component:
 ```php
 use l3aro\FilamentTurnstile\Enums\TurnstileSize;
 use l3aro\FilamentTurnstile\Enums\TurnstileTheme;
-use l3aro\FilamentTurnstile\Forms\Components\Turnstile;
+use l3aro\FilamentTurnstile\Forms\Turnstile;
 
 
 Turnstile::make('captcha')
@@ -150,7 +150,7 @@ Create a new `App/Filament/Pages/Auth/Login.php` class:
 
 namespace App\Filament\Pages\Auth;
 
-use l3aro\FilamentTurnstile\Forms\Components\Turnstile;
+use l3aro\FilamentTurnstile\Forms\Turnstile;
 use Filament\Forms\Form;
 use Filament\Http\Responses\Auth\Contracts\LoginResponse;
 use Filament\Pages\Auth\Login as AuthLogin;
