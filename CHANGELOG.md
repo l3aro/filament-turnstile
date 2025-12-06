@@ -2,6 +2,19 @@
 
 All notable changes to `filament-turnstile` will be documented in this file.
 
+## v1.0.6 - 2025-12-06
+
+### What's Changed
+
+* Upgrade filamentv5 by @l3aro in https://github.com/l3aro/filament-turnstile/pull/4
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/l3aro/filament-turnstile/pull/3
+
+### New Contributors
+
+* @l3aro made their first contribution in https://github.com/l3aro/filament-turnstile/pull/4
+
+**Full Changelog**: https://github.com/l3aro/filament-turnstile/compare/v1.0.5...v1.0.6
+
 ## v1.0.5 - 2025-11-11
 
 **Full Changelog**: https://github.com/l3aro/filament-turnstile/compare/v1.0.4...v1.0.5
