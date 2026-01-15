@@ -72,8 +72,8 @@ use l3aro\FilamentTurnstile\Forms\Turnstile;
 
 
 Turnstile::make('captcha')
-    ->theme(TurnstileTheme::Auto)
-    ->size(TurnstileSize::Normal)
+    ->theme(TurnstileTheme::Auto->value)
+    ->size(TurnstileSize::Normal->value)
     ->language('en-US')
     ->resetEvent('reset-captcha')
 ```
