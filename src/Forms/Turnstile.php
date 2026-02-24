@@ -67,14 +67,14 @@ class Turnstile extends Field
         return $this;
     }
 
-    public function getTheme(): ?string
+    public function getTheme(): null|string|TurnstileTheme
     {
         $theme = $this->evaluate($this->theme);
 
         return $theme === ArgumentValue::Default ? 'auto' : $theme;
     }
 
-    public function getSize(): ?string
+    public function getSize(): null|string|TurnstileSize
     {
         $size = $this->evaluate($this->size);
 
