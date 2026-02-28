@@ -67,16 +67,24 @@ class Turnstile extends Field
         return $this;
     }
 
-    public function getTheme(): string|TurnstileTheme|null
+    public function getTheme(): ?string
     {
         $theme = $this->evaluate($this->theme);
+
+        if ($theme instanceof \BackedEnum) {
+            return $theme->value;
+        }
 
         return $theme === ArgumentValue::Default ? 'auto' : $theme;
     }
 
-    public function getSize(): string|TurnstileSize|null
+    public function getSize(): ?string
     {
         $size = $this->evaluate($this->size);
+
+        if ($size instanceof \BackedEnum) {
+            return $size->value;
+        }
 
         return $size === ArgumentValue::Default ? 'normal' : $size;
     }
