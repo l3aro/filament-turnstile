@@ -2,6 +2,20 @@
 
 All notable changes to `filament-turnstile` will be documented in this file.
 
+## v1.0.7 - 2026-02-28
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/l3aro/filament-turnstile/pull/5
+* fixed value type error in the package where passing the Enums Turnsti… by @ignatius-n in https://github.com/l3aro/filament-turnstile/pull/7
+* fix: convert BackedEnum to string for Blade template compatibility by @l3aro in https://github.com/l3aro/filament-turnstile/pull/8
+
+### New Contributors
+
+* @ignatius-n made their first contribution in https://github.com/l3aro/filament-turnstile/pull/7
+
+**Full Changelog**: https://github.com/l3aro/filament-turnstile/compare/v1.0.6...v1.0.7
+
 ## v1.0.6 - 2025-12-06
 
 ### What's Changed
