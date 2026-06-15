@@ -2,6 +2,16 @@
 
 All notable changes to `filament-turnstile` will be documented in this file.
 
+## v1.1.0 - 2026-06-15
+
+### What's Changed
+
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/l3aro/filament-turnstile/pull/9
+* Bump dependabot/fetch-metadata from 2.5.0 to 3.1.0 by @dependabot[bot] in https://github.com/l3aro/filament-turnstile/pull/11
+* Support Laravel 13 by @l3aro in https://github.com/l3aro/filament-turnstile/pull/12
+
+**Full Changelog**: https://github.com/l3aro/filament-turnstile/compare/v1.0.7...v1.1.0
+
 ## v1.0.7 - 2026-02-28
 
 ### What's Changed
