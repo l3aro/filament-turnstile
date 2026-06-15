@@ -2,6 +2,14 @@
 
 All notable changes to `filament-turnstile` will be documented in this file.
 
+## v1.1.1 - 2026-06-15
+
+### What's Changed
+
+* Only required if credentials are configured
+
+**Full Changelog**: https://github.com/l3aro/filament-turnstile/compare/v1.1.0...v1.1.1
+
 ## v1.1.0 - 2026-06-15
 
 ### What's Changed
