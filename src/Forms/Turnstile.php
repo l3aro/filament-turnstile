@@ -33,7 +33,7 @@ class Turnstile extends Field
         parent::setUp();
 
         $this
-            ->required()
+            ->required(config('filament-turnstile.key') && config('filament-turnstile.secret'))
             ->hiddenLabel()
             ->rule(new TurnstileRule())
             ->dehydrated(false);
