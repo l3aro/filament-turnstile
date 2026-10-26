@@ -18,6 +18,8 @@ class TurnstileRule implements ValidationRule
 
         if (empty($response->errorCodes)) {
             $fail('filament-turnstile::errors.unexpected')->translate();
+
+            return;
         }
 
         foreach ($response->errorCodes as $errorCode) {
